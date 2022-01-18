@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.DictItemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.DictItem">
+        <id column="dict_item_id" property="dictItemId" />
+        <result column="dict_id" property="dictId" />
+        <result column="sort" property="sort" />
+        <result column="item_label" property="itemLabel" />
+        <result column="item_value" property="itemValue" />
+        <result column="default_value" property="defaultValue" />
+        <result column="enabled" property="enabled" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="create_user_id" property="createUserId" />
+        <result column="update_user_id" property="updateUserId" />
+        <result column="remarks" property="remarks" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        DictItem.dict_item_id, DictItem.dict_id, DictItem.sort, DictItem.item_label, DictItem.item_value, DictItem.default_value, DictItem.enabled, DictItem.create_time, DictItem.update_time, DictItem.create_user_id, DictItem.update_user_id, DictItem.remarks, DictItem.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_dict_item DictItem
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_dict_item DictItem
+    </select>
+</mapper>

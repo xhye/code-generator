@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.FunctionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Function">
+        <id column="function_id" property="functionId" />
+        <result column="parent_id" property="parentId" />
+        <result column="label" property="label" />
+        <result column="method" property="method" />
+        <result column="uri" property="uri" />
+        <result column="clazz" property="clazz" />
+        <result column="level" property="level" />
+        <result column="module" property="module" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="enabled" property="enabled" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Function.function_id, Function.parent_id, Function.label, Function.method, Function.uri, Function.clazz, Function.level, Function.module, Function.tenant_id, Function.enabled, Function.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_function Function
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_function Function
+    </select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.LogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Log">
+        <id column="log_id" property="logId" />
+        <result column="user_id" property="userId" />
+        <result column="ip" property="ip" />
+        <result column="cost" property="cost" />
+        <result column="status" property="status" />
+        <result column="label" property="label" />
+        <result column="clazz" property="clazz" />
+        <result column="method" property="method" />
+        <result column="params" property="params" />
+        <result column="result" property="result" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="create_time" property="createTime" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Log.log_id, Log.user_id, Log.ip, Log.cost, Log.status, Log.label, Log.clazz, Log.method, Log.params, Log.result, Log.tenant_id, Log.create_time, Log.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_log Log
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_log Log
+    </select>
+</mapper>

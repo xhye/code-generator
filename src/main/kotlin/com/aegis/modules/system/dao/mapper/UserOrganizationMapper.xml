@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.UserOrganizationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.UserOrganization">
+        <id column="user_organization_id" property="userOrganizationId" />
+        <result column="user_id" property="userId" />
+        <result column="organization_id" property="organizationId" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        UserOrganization.user_organization_id, UserOrganization.user_id, UserOrganization.organization_id, UserOrganization.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_user_organization UserOrganization
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_user_organization UserOrganization
+    </select>
+</mapper>

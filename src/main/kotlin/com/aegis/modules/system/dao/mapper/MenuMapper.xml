@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.MenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Menu">
+        <id column="menu_id" property="menuId" />
+        <result column="name_ch" property="nameCh" />
+        <result column="name_en" property="nameEn" />
+        <result column="icon" property="icon" />
+        <result column="route" property="route" />
+        <result column="order" property="order" />
+        <result column="parent_id" property="parentId" />
+        <result column="type" property="type" />
+        <result column="module" property="module" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="enabled" property="enabled" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Menu.menu_id, Menu.name_ch, Menu.name_en, Menu.icon, Menu.route, Menu.order, Menu.parent_id, Menu.type, Menu.module, Menu.tenant_id, Menu.enabled, Menu.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_menu Menu
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_menu Menu
+    </select>
+</mapper>

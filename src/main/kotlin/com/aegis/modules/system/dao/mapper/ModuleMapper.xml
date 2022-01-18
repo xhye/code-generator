@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.ModuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Module">
+        <id column="module_id" property="moduleId" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="name" property="name" />
+        <result column="code" property="code" />
+        <result column="route" property="route" />
+        <result column="authority" property="authority" />
+        <result column="order" property="order" />
+        <result column="enable" property="enable" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Module.module_id, Module.tenant_id, Module.name, Module.code, Module.route, Module.authority, Module.order, Module.enable, Module.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_module Module
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_module Module
+    </select>
+</mapper>

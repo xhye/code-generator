@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.FileMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.File">
+        <id column="file_id" property="fileId" />
+        <result column="title" property="title" />
+        <result column="total_size" property="totalSize" />
+        <result column="url" property="url" />
+        <result column="file_type" property="fileType" />
+        <result column="file_suffix" property="fileSuffix" />
+        <result column="ref_type" property="refType" />
+        <result column="ref_id" property="refId" />
+        <result column="double_ref_id" property="doubleRefId" />
+        <result column="enabled" property="enabled" />
+        <result column="create_time" property="createTime" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        File.file_id, File.title, File.total_size, File.url, File.file_type, File.file_suffix, File.ref_type, File.ref_id, File.double_ref_id, File.enabled, File.create_time, File.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_file File
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_file File
+    </select>
+</mapper>

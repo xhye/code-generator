@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.OrganizationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Organization">
+        <id column="organization_id" property="organizationId" />
+        <result column="uid" property="uid" />
+        <result column="parent_id" property="parentId" />
+        <result column="name" property="name" />
+        <result column="code" property="code" />
+        <result column="establish_date" property="establishDate" />
+        <result column="address" property="address" />
+        <result column="description" property="description" />
+        <result column="lng_and_lat" property="lngAndLat" />
+        <result column="type" property="type" />
+        <result column="mobile" property="mobile" />
+        <result column="area_code_id" property="areaCodeId" />
+        <result column="grade" property="grade" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="enabled" property="enabled" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Organization.organization_id, Organization.uid, Organization.parent_id, Organization.name, Organization.code, Organization.establish_date, Organization.address, Organization.description, Organization.lng_and_lat, Organization.type, Organization.mobile, Organization.area_code_id, Organization.grade, Organization.tenant_id, Organization.enabled, Organization.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_organization Organization
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_organization Organization
+    </select>
+</mapper>

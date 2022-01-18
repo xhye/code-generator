@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.RoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.Role">
+        <id column="role_id" property="roleId" />
+        <result column="type" property="type" />
+        <result column="name_zh" property="nameZh" />
+        <result column="name_en" property="nameEn" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="remarks" property="remarks" />
+        <result column="enabled" property="enabled" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Role.role_id, Role.type, Role.name_zh, Role.name_en, Role.tenant_id, Role.remarks, Role.enabled, Role.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_role Role
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_role Role
+    </select>
+</mapper>

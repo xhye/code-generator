@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aegis.modules.system.dao.ScheduleJobLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aegis.modules.system.model.entity.ScheduleJobLog">
+        <id column="job_log_id" property="jobLogId" />
+        <result column="job_id" property="jobId" />
+        <result column="bean_name" property="beanName" />
+        <result column="params" property="params" />
+        <result column="status" property="status" />
+        <result column="error" property="error" />
+        <result column="times" property="times" />
+        <result column="create_time" property="createTime" />
+        <result column="del" property="del" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ScheduleJobLog.job_log_id, ScheduleJobLog.job_id, ScheduleJobLog.bean_name, ScheduleJobLog.params, ScheduleJobLog.status, ScheduleJobLog.error, ScheduleJobLog.times, ScheduleJobLog.create_time, ScheduleJobLog.del
+    </sql>
+
+    <select id="listNoPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_schedule_job_log ScheduleJobLog
+    </select>
+    <select id="listWithPage" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include> FROM t_sys_schedule_job_log ScheduleJobLog
+    </select>
+</mapper>
